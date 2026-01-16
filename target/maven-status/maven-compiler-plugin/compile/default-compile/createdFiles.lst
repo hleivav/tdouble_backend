@@ -31,6 +31,7 @@ se\tennis\tdouble\service\SpelareService.class
 se\tennis\tdouble\controller\SpelareController.class
 se\tennis\tdouble\dto\MatchDTO$MatchDTOBuilder.class
 se\tennis\tdouble\entity\Grupp.class
+se\tennis\tdouble\controller\ExceptionAdvice.class
 se\tennis\tdouble\dto\SasongDTO.class
 se\tennis\tdouble\repository\MatchRepository.class
 se\tennis\tdouble\dto\MatchDTO.class

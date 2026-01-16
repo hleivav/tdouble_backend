@@ -2,6 +2,7 @@ package se.tennis.tdouble.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import se.tennis.tdouble.dto.GruppDTO;
 import se.tennis.tdouble.entity.Grupp;
@@ -34,7 +35,7 @@ public class GruppController {
     }
 
     @PostMapping
-    public ResponseEntity<Grupp> create(@RequestBody GruppDTO dto) {
+    public ResponseEntity<Grupp> create(@Valid @RequestBody GruppDTO dto) {
         return ResponseEntity.ok(gruppService.create(dto.getSasongId(), dto.getNamn(), dto.getGruppNummer()));
     }
 

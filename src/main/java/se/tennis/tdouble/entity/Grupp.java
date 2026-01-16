@@ -29,6 +29,7 @@ public class Grupp {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sasong_id")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private Sasong sasong;
 
     @ManyToMany
@@ -37,8 +38,9 @@ public class Grupp {
         joinColumns = @JoinColumn(name = "grupp_id"),
         inverseJoinColumns = @JoinColumn(name = "spelare_id")
     )
-    @Builder.Default
-    private List<Spelare> spelare = new ArrayList<>();
+        @com.fasterxml.jackson.annotation.JsonIgnore
+        @Builder.Default
+        private List<Spelare> spelare = new ArrayList<>();
 
     public void addSpelare(Spelare spelare) {
         this.spelare.add(spelare);

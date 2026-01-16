@@ -25,3 +25,4 @@ C:\NoOneDrive\Projekt\Tennis_dubbel\backend\src\main\java\se\tennis\tdouble\serv
 C:\NoOneDrive\Projekt\Tennis_dubbel\backend\src\main\java\se\tennis\tdouble\controller\TabellController.java
 C:\NoOneDrive\Projekt\Tennis_dubbel\backend\src\main\java\se\tennis\tdouble\dto\ResultatDTO.java
 C:\NoOneDrive\Projekt\Tennis_dubbel\backend\src\main\java\se\tennis\tdouble\entity\SetResultat.java
+C:\NoOneDrive\Projekt\Tennis_dubbel\backend\src\main\java\se\tennis\tdouble\controller\ExceptionAdvice.java

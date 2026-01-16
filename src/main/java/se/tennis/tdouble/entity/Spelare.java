@@ -34,6 +34,7 @@ public class Spelare {
     private boolean aktiv = true;
 
     @ManyToMany(mappedBy = "spelare")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     @Builder.Default
     private List<Grupp> grupper = new ArrayList<>();
 }
