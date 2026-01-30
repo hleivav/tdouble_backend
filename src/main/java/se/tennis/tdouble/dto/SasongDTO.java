@@ -17,4 +17,5 @@ public class SasongDTO {
     private LocalDate startDatum;
     private LocalDate slutDatum;
     private boolean aktiv;
+    private se.tennis.tdouble.entity.ScoringSystem scoringSystem;
 }

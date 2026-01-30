@@ -24,6 +24,7 @@ public class SasongController {
         dto.setStartDatum(sasong.getStartDatum());
         dto.setSlutDatum(sasong.getSlutDatum());
         dto.setAktiv(sasong.isAktiv());
+        dto.setScoringSystem(sasong.getScoringSystem());
         return dto;
     }
 
@@ -66,6 +67,7 @@ public class SasongController {
                 .startDatum(dto.getStartDatum())
                 .slutDatum(dto.getSlutDatum())
                 .aktiv(true)
+                .scoringSystem(dto.getScoringSystem() == null ? se.tennis.tdouble.entity.ScoringSystem.GAME_BASED : dto.getScoringSystem())
                 .build();
         return ResponseEntity.ok(toDTO(sasongService.save(sasong)));
     }
@@ -77,6 +79,7 @@ public class SasongController {
                     sasong.setNamn(dto.getNamn());
                     sasong.setStartDatum(dto.getStartDatum());
                     sasong.setSlutDatum(dto.getSlutDatum());
+                    sasong.setScoringSystem(dto.getScoringSystem());
                     return ResponseEntity.ok(toDTO(sasongService.save(sasong)));
                 })
                 .orElse(ResponseEntity.notFound().build());

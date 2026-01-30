@@ -35,6 +35,10 @@ public class Sasong {
     @Column(nullable = false)
     private boolean aktiv = true;
 
+    // Vilket poängsystem som används för säsongen
+    @Enumerated(EnumType.STRING)
+    @Column(name = "scoring_system")
+    private ScoringSystem scoringSystem = ScoringSystem.GAME_BASED;
 
     @OneToMany(mappedBy = "sasong", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default

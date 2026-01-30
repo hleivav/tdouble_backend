@@ -22,7 +22,7 @@ public class TabellRadDTO {
     private int forloradeGems;
     private int setDifferens;
     private int gemsDifferens;
-    private int poang;
+    private double poang;
 
     public TabellRadDTO(String lagNamn) {
         this.lagNamn = lagNamn;
@@ -34,11 +34,14 @@ public class TabellRadDTO {
         this.forloradeSet = 0;
         this.vunnaGems = 0;
         this.forloradeGems = 0;
+        this.poang = 0.0;
+    }
+
+    public void addPoang(double p) {
+        this.poang += p;
     }
 
     public void beraknaPoangOchDifferens() {
-        // 2 poäng för vinst, 1 för oavgjort, 0 för förlust
-        this.poang = (vinster * 2) + oavgjorda;
         this.setDifferens = vunnaSet - forloradeSet;
         this.gemsDifferens = vunnaGems - forloradeGems;
     }

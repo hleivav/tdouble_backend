@@ -1,4 +1,5 @@
 se\tennis\tdouble\dto\TabellRadDTO.class
+se\tennis\tdouble\service\TabellService$1.class
 se\tennis\tdouble\repository\GruppRepository.class
 se\tennis\tdouble\dto\SpelareDTO$SpelareDTOBuilder.class
 se\tennis\tdouble\service\TabellService.class
@@ -17,7 +18,7 @@ se\tennis\tdouble\repository\SasongRepository.class
 se\tennis\tdouble\service\SasongService.class
 se\tennis\tdouble\entity\Sasong.class
 se\tennis\tdouble\service\GruppService.class
-se\tennis\tdouble\controller\MatchController.class
+se\tennis\tdouble\entity\ScoringSystem.class
 se\tennis\tdouble\service\MatchService.class
 se\tennis\tdouble\entity\Grupp$GruppBuilder.class
 se\tennis\tdouble\entity\Spelare$SpelareBuilder.class

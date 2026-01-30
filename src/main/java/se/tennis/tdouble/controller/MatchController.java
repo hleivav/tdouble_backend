@@ -7,6 +7,9 @@ import se.tennis.tdouble.dto.MatchDTO;
 import se.tennis.tdouble.dto.ResultatDTO;
 import se.tennis.tdouble.entity.Match;
 import se.tennis.tdouble.service.MatchService;
+import se.tennis.tdouble.service.SasongService;
+import se.tennis.tdouble.service.GruppService;
+import se.tennis.tdouble.service.SpelareService;
 
 import java.util.List;
 
@@ -16,6 +19,9 @@ import java.util.List;
 public class MatchController {
 
     private final MatchService matchService;
+    private final SasongService sasongService;
+    private final GruppService gruppService;
+    private final SpelareService spelareService;
 
     @GetMapping
     public ResponseEntity<List<Match>> getAll() {
@@ -51,8 +57,25 @@ public class MatchController {
 
     @PostMapping
     public ResponseEntity<Match> create(@RequestBody MatchDTO dto) {
-        // TODO: Implementera matchskapande med spelar-IDs
-        return ResponseEntity.ok(matchService.save(new Match()));
+        Match match = new Match();
+
+        if (dto.getSasongId() != null) {
+            sasongService.findById(dto.getSasongId()).ifPresent(match::setSasong);
+        }
+        if (dto.getGruppId() != null) {
+            gruppService.findById(dto.getGruppId()).ifPresent(match::setGrupp);
+        }
+        match.setMatchDatum(dto.getMatchDatum());
+        match.setMatchTid(dto.getMatchTid());
+        match.setBana(dto.getBana());
+
+        if (dto.getLag1Spelare1Id() != null) spelareService.findById(dto.getLag1Spelare1Id()).ifPresent(match::setLag1Spelare1);
+        if (dto.getLag1Spelare2Id() != null) spelareService.findById(dto.getLag1Spelare2Id()).ifPresent(match::setLag1Spelare2);
+        if (dto.getLag2Spelare1Id() != null) spelareService.findById(dto.getLag2Spelare1Id()).ifPresent(match::setLag2Spelare1);
+        if (dto.getLag2Spelare2Id() != null) spelareService.findById(dto.getLag2Spelare2Id()).ifPresent(match::setLag2Spelare2);
+
+        Match saved = matchService.save(match);
+        return ResponseEntity.ok(saved);
     }
 
     @PostMapping("/{id}/resultat")

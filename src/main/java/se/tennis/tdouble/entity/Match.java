@@ -96,15 +96,29 @@ public class Match {
         int lag1 = 0;
         int lag2 = 0;
         for (SetResultat set : setResultat) {
-            if (set.getLag1Gems() != null && set.getLag2Gems() != null) {
-                if (set.getLag1Gems() > set.getLag2Gems()) {
-                    lag1++;
-                } else if (set.getLag2Gems() > set.getLag1Gems()) {
-                    lag2++;
+            Integer g1 = set.getLag1Gems();
+            Integer g2 = set.getLag2Gems();
+            if (g1 != null && g2 != null) {
+                if (isSetCompleted(g1, g2)) {
+                    if (g1 > g2) {
+                        lag1++;
+                    } else if (g2 > g1) {
+                        lag2++;
+                    }
                 }
             }
         }
         this.lag1VunnaSet = lag1;
         this.lag2VunnaSet = lag2;
+    }
+
+    private boolean isSetCompleted(int g1, int g2) {
+        int max = Math.max(g1, g2);
+        int min = Math.min(g1, g2);
+        int diff = Math.abs(g1 - g2);
+        if ((max >= 6 && diff >= 2) || (max == 7 && min == 6)) {
+            return true;
+        }
+        return false;
     }
 }
